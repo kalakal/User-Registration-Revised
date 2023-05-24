@@ -30,11 +30,27 @@ public class UserDetails {
        else
            System.out.println("invalid last name");
     }
+    void phoneNumber(){
+        Pattern pattern = Pattern.compile("^[9][1]\s[6-9][0-9]{9}$");
+        System.out.println("Enter user Phone number");
+        Scanner scanner = new Scanner(System.in);
+
+        String phoneNumber = scanner.next();
+
+        Matcher match = pattern.matcher(phoneNumber);
+        if (match.matches())
+            System.out.println("Phone Number is Valid");
+        else
+            System.out.println("Invalid Phone Number");
+
+    }
+
 
     public static void main(String[] args) {
         UserDetails usrdetails = new UserDetails();
         usrdetails.firstName();
         usrdetails.lastName();
+        usrdetails.phoneNumber();
 
     }
 }
