@@ -18,10 +18,24 @@ public class UserDetails {
         else
             System.out.println("Invalid Firstname");
     }
+    public void lastName(){
+        Pattern pattern = Pattern.compile("^[A-Z]+[a-zA-Z]{2,}[0-9]*$");
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Enter Last name");
+        String lastName = scanner.next();
+
+        Matcher match = pattern.matcher(lastName);
+       if (match.matches())
+           System.out.println("Last Name is valid");
+       else
+           System.out.println("invalid last name");
+    }
 
     public static void main(String[] args) {
         UserDetails usrdetails = new UserDetails();
         usrdetails.firstName();
+        usrdetails.lastName();
+
     }
 }
 
