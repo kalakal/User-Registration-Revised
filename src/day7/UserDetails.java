@@ -43,6 +43,19 @@ public class UserDetails {
             System.out.println("Invalid Phone Number");
 
     }
+    void checkEmailId(){
+        Pattern pattern = Pattern.compile("^[a-z]*.[a-z]+@[a-z]+.[a-z]{2,3}(.[a-z]{2})*$");
+
+        System.out.println("Enter user email ");
+        String emailID = scanner.next();
+        String email = scanner.nextLine();
+
+        Matcher match = pattern.matcher(email);
+        if (match.matches())
+            System.out.println("Email-ID is Valid");
+        else
+            System.out.println("Invalid Email-ID");
+    }
 
     void checkPassword(){
         Pattern pattern = Pattern.compile("^(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9a-zA-Z]).{8,}$");
@@ -65,6 +78,7 @@ public class UserDetails {
 //        usrdetails.firstName();
 //        usrdetails.lastName();
 //        usrdetails.phoneNumber();
+          usrdetails.checkEmailId();
           usrdetails.checkPassword();
 
     }
