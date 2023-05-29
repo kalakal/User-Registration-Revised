@@ -45,10 +45,10 @@ public class UserDetails {
     }
 
     void checkPassword(){
-        Pattern pattern = Pattern.compile("^[a-z]{8,}$");
+        Pattern pattern = Pattern.compile("^(?=.*[A-Z])(?=.*[a-z]).{8,}$");
         System.out.println("Enter user Password");
 
-        String password = scanner.next();
+        String password = scanner.nextLine();
 
         Matcher match = pattern.matcher(password);
         if (match.matches())
@@ -57,12 +57,13 @@ public class UserDetails {
             System.out.println("password is InValid");
     }
 
+
     public static void main(String[] args) {
-        UserDetails usrdetails = new UserDetails();
-        usrdetails.firstName();
-        usrdetails.lastName();
-        usrdetails.phoneNumber();
-        usrdetails.checkPassword();
+          UserDetails usrdetails = new UserDetails();
+//        usrdetails.firstName();
+//        usrdetails.lastName();
+//        usrdetails.phoneNumber();
+          usrdetails.checkPassword();
 
     }
 }
