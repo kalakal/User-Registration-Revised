@@ -5,10 +5,11 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class UserDetails {
+
+    Scanner scanner = new Scanner(System.in);
     public void firstName(){
         Pattern pattern = Pattern.compile("^[A-Z]+[a-zA-Z]{2,}[0-9]*$");
 
-        Scanner scanner = new Scanner(System.in);
         System.out.print("Enter Firstname: ");
         String firstName = scanner.next();
 
@@ -20,7 +21,6 @@ public class UserDetails {
     }
     public void lastName(){
         Pattern pattern = Pattern.compile("^[A-Z]+[a-zA-Z]{2,}[0-9]*$");
-        Scanner scanner = new Scanner(System.in);
         System.out.println("Enter Last name");
         String lastName = scanner.next();
 
@@ -31,9 +31,8 @@ public class UserDetails {
            System.out.println("invalid last name");
     }
     void phoneNumber(){
-        Pattern pattern = Pattern.compile("^[9][1]\s[6-9][0-9]{9}$");
+        Pattern pattern = Pattern.compile("^[9][1]\\s[6-9][0-9]{9}$");
         System.out.println("Enter user Phone number");
-        Scanner scanner = new Scanner(System.in);
 
         String phoneNumber = scanner.next();
 
@@ -45,12 +44,25 @@ public class UserDetails {
 
     }
 
+    void checkPassword(){
+        Pattern pattern = Pattern.compile("^[a-z]{8,}$");
+        System.out.println("Enter user Password");
+
+        String password = scanner.next();
+
+        Matcher match = pattern.matcher(password);
+        if (match.matches())
+            System.out.println("password is Valid");
+        else
+            System.out.println("password is InValid");
+    }
 
     public static void main(String[] args) {
         UserDetails usrdetails = new UserDetails();
         usrdetails.firstName();
         usrdetails.lastName();
         usrdetails.phoneNumber();
+        usrdetails.checkPassword();
 
     }
 }
