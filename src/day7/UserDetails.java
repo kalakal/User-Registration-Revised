@@ -45,7 +45,7 @@ public class UserDetails {
     }
 
     void checkPassword(){
-        Pattern pattern = Pattern.compile("^(?=.*[A-Z])(?=.*[a-z]).{8,}$");
+        Pattern pattern = Pattern.compile("^(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9a-zA-Z]).{8,}$");
         System.out.println("Enter user Password");
 
         String password = scanner.nextLine();
@@ -56,6 +56,7 @@ public class UserDetails {
         else
             System.out.println("password is InValid");
     }
+
 
 
     public static void main(String[] args) {
