@@ -59,6 +59,7 @@ public class UserDetails {
 
 
 
+
     public static void main(String[] args) {
           UserDetails usrdetails = new UserDetails();
 //        usrdetails.firstName();
