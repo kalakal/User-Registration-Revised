@@ -1,0 +1,54 @@
+package day7;
+
+import java.util.Scanner;
+import java.util.function.Predicate;
+
+public class UserDetails {
+
+    Scanner scanner = new Scanner(System.in);
+
+    private void validateInput(String prompt, Predicate<String> validator) {
+        System.out.print(prompt);
+        String input = scanner.nextLine();
+
+        if (validator.test(input)) {
+            System.out.println("Valid input");
+        } else {
+            System.out.println("Invalid input");
+        }
+    }
+
+    public void validateFirstName() {
+        Predicate<String> firstNameValidator = firstName -> firstName.matches("^[A-Z][a-zA-Z]{2,}[0-9]*$");
+        validateInput("Enter Firstname: ", firstNameValidator);
+    }
+
+    public void validateLastName() {
+        Predicate<String> lastNameValidator = lastName -> lastName.matches("^[A-Z][a-zA-Z]{2,}[0-9]*$");
+        validateInput("Enter Last name: ", lastNameValidator);
+    }
+
+    public void validatePhoneNumber() {
+        Predicate<String> phoneNumberValidator = phoneNumber -> phoneNumber.matches("^[9][1]\\s[6-9][0-9]{9}$");
+        validateInput("Enter user Phone number: ", phoneNumberValidator);
+    }
+
+    public void validateEmail() {
+        Predicate<String> emailValidator = email -> email.matches("^[A-Za-z0-9+_.-]+@[A-Za-z0-9.-]+$");
+        validateInput("Enter user Email: ", emailValidator);
+    }
+
+    public void validatePassword() {
+        Predicate<String> passwordValidator = password -> password.matches("^(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9a-zA-Z]).{8,}$");
+        validateInput("Enter user Password: ", passwordValidator);
+    }
+
+    public static void main(String[] args) {
+        UserDetails userDetails = new UserDetails();
+        userDetails.validateFirstName();
+        userDetails.validateLastName();
+        userDetails.validatePhoneNumber();
+        userDetails.validateEmail();
+        userDetails.validatePassword();
+    }
+}
